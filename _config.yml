@@ -1,0 +1,11 @@
+
+collections:
+  ludwig:
+    output: true
+  yamaha:
+  gretsch:
+  premier:
+
+
+# Serving
+port: 1234

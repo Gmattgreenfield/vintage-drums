@@ -1,0 +1,34 @@
+{
+  "name": "styles",
+  "version": "0.0.0",
+  "homepage": "mattgreenfield.co.uk",
+  "authors": [
+    "Matt Greenfield <gmattgreenfield@gmail.com>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "inuit",
+    "css"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "inuit-starter-kit": "~0.2.4",
+    "inuit-responsive-tools": "~0.1.1",
+    "inuit-responsive-settings": "~0.1.1",
+    "inuit-layout": "~0.3.1",
+    "inuit-images": "~0.2.0",
+    "inuit-inline-list": "*",
+    "inuit-clearfix": "~0.2.1",
+    "inuit-widths": "~0.3.2",
+    "inuit-widths-responsive": "~0.1.3"
+  }
+}

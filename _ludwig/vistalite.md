@@ -1,0 +1,11 @@
+---
+title: Vistalite
+year: 1972
+type: kit
+---
+
+Vistalite drums were a line of acrylic PET (Polyethylene terephthalate) drums produced by the Ludwig Drum company,[1] introduced in 1972. The name Vistalite refers to the translucent plastic that the shells were made out of. Vistalite and acrylic offered a synthetic alternative to wood shells and were popularized by rock drummer John Bonham of Led Zeppelin.
+
+Bill Zickos was the father of the acrylic drums. Built the first experimental set in 1959 and received a US Patent (patent #3,626,458) for them in 1970.
+
+Ref: http://en.wikipedia.org/wiki/Vistalite_Drums
