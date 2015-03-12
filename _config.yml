@@ -1,4 +1,6 @@
 
+baseurl: "/vintage-drums"
+
 collections:
   ludwig:
     output: true

@@ -10,7 +10,7 @@
 	<title>Vintage Drums - {{ page.title }}</title>
 
 	<!-- CSS -->
-	<link href="/assets/css/styles.min.css" rel="stylesheet">
+	<link href="{{ site.baseurl }}/assets/css/styles.min.css" rel="stylesheet">
 
 </head>
 
@@ -22,7 +22,7 @@
 			<ul class="nav nav--inline">
 				<li><a href="/">Home</a></li>
 				{% for collection in site.collections %}
-					<li><a href="/{{ collection[0] }}/">{{ collection[0] | capitalize }}</a></li>
+					<li><a href="{{ site.baseurl }}/{{ collection[0] }}/">{{ collection[0] | capitalize }}</a></li>
 				{% endfor %}
 			</ul>
 		</nav>
@@ -38,7 +38,7 @@
 				<div class="article__content {% cycle '', 'article__content--reversed' %}">
 
 					<div class="content content--image">
-						<img src="/assets/img/{{ article.collection }}/{{ article.title | downcase | replace: ' ', '-' }}.jpg" alt="">
+						<img src="{{ site.baseurl }}/assets/img/{{ article.collection }}/{{ article.title | downcase | replace: ' ', '-' }}.jpg" alt="">
 					</div>
 
 					<div class="content content--text">
