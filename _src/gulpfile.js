@@ -14,9 +14,9 @@ var imagemin = require('gulp-imagemin');
   // var pngcrush = require('imagemin-pngcrush');
 
 var paths = {
-  scripts: ['javascript/*'],
-  images: ['../imgs/*','../imgs/work/*',],
-  styles: ['*.scss', 'sass_imports/*.scss']
+  scripts: ['js/*.js'],
+  images: ['imgage/*','../imgs/*/*',],
+  styles: ['css/*.scss', 'css/patterns/*.scss']
 };
 
 
@@ -25,7 +25,7 @@ var paths = {
 gulp.task('sass', function () {
     gulp.src(paths.styles)
         .pipe(sass({style: 'compressed'}))
-        .pipe(prefix(["last 1 version", "> 1%", "ie 8", "ie 7"],{map: false }))
+        .pipe(prefix(["last 1 version", "> 2%"],{map: false }))
         .pipe(minifyCSS())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('../assets/css/'));

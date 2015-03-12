@@ -182,7 +182,3 @@ if (typeof Object.create !== 'function') {
     };
 
 })(jQuery, window, document);
-
-$( "#menu-toggle" ).click(function() {
-	$( "body" ).toggleClass( "nav-open" );
-});
