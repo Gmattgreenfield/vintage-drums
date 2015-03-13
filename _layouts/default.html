@@ -10,7 +10,8 @@
 	<title>Vintage Drums - {{ page.title }}</title>
 
 	<!-- CSS -->
-	<link href="{{ site.baseurl }}/assets/css/styles.min.css" rel="stylesheet">
+	<link href="{{ site.baseurl }}/assets/css/styles.min.css" rel="stylesheet" type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
 
 </head>
 
@@ -29,30 +30,45 @@
 
 	</header>
 
-	<section>
-		{% assign items = site.ludwig | sort: 'year' %}
+	<main>
+		<section>
 
-		{% for article in items %}
-			<article>
+			{% assign items = site.ludwig | sort: 'year' %}
 
-				<div class="article__content {% cycle '', 'article__content--reversed' %}">
+			<nav class="timeline" id="timeline">
+				<ul>
+					{% for article in items %}
+						<li>
+							<a href="#{{ article.year }}">{{ article.year }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</nav>
 
-					<div class="content content--image">
-						<img src="{{ site.baseurl }}/assets/img/{{ article.collection }}/{{ article.title | downcase | replace: ' ', '-' }}.jpg" alt="">
+
+			{% for article in items %}
+				<article id="{{ article.year }}">
+
+					<div class="article__content {% cycle '', 'article__content--reversed' %}">
+
+						<div class="content content--image">
+							<img src="{{ site.baseurl }}/assets/img/{{ article.collection }}/{{ article.title | downcase | replace: ' ', '-' }}.png" alt="">
+						</div>
+
+						<div class="content content--text">
+							<h2>{{ article.title }}</h2>
+							<h3>{{ article.year }}</h3>
+							<div>{{ article.content }}</div>
+						</div>
+
 					</div>
 
-					<div class="content content--text">
-						<h2>{{ article.title }}</h2>
-						<h3>{{ article.year }}</h3>
-						<div>{{ article.content }}</div>
-					</div>
+				</article>
+			{% endfor %}
 
-				</div>
+		</section>
 
-			</article>
-		{% endfor %}
-
-	</section>
+	</main>
 
 
 
@@ -66,7 +82,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 	<!-- My JS -->
-	<script src=""></script>
+	<script src="{{ site.baseurl }}/assets/js/scripts.min.js"></script>
 
 </body>
 </html>

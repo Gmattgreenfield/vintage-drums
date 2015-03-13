@@ -1,40 +1,42 @@
 
 
 
-// INUIT
 
-$inuit-base-font-size:          18px;
-$inuit-base-line-height:        28px;
-@import "bower_components/inuit-defaults/settings.defaults";
+// Variables
 
-@import "bower_components/inuit-functions/tools.functions";
-@import "bower_components/inuit-mixins/tools.mixins";
-
-@import "bower_components/inuit-normalize/generic.normalize";
-@import "bower_components/inuit-box-sizing/generic.box-sizing";
-
-@import "bower_components/inuit-page/base.page";
-
-@import "bower_components/inuit-clearfix/trumps.clearfix";
-
-$base-spacing-unit: $inuit-base-spacing-unit;
-
-img {
-	max-width: 100%;
-}
-
-
-
-// My variables
+$base-spacing-unit: 20px;
 
 $lap-and-up: 720px;
 $desk-and-up: 1000px;
 
 
 
+// Helpers
+
+img {
+	max-width: 100%;
+}
+
+%clearfix {
+	&:after {
+
+	}
+}
+%reset-list {
+	margin: 0;
+	padding: 0;
+	li {
+		list-style-type: none;
+	}
+}
+
+
 // Base Styles
 
 body {
+	font-size: 1.3em;
+	line-height: 1.5em;
+	font-family: 'Monda', sans-serif;
 
 }
 
@@ -42,12 +44,15 @@ body {
 // Navigation
 
 .nav {
-	list-style-type: none;
-}
-.nav--inline {
-	li {
-		display: inline-block;
+
+	@extend %reset-list;
+
+	&--inline {
+		li {
+			display: inline-block;
+		}
 	}
+
 }
 
 
@@ -111,8 +116,18 @@ article {
 			flex-shrink: 0;
 			flex-basis: 0px;
 
+			height: 600px;
 		}
 	}
 
 
+}
+
+
+
+// Time line nav
+
+.timeline {
+	@extend %reset-list;
+	position: fixed;
 }
