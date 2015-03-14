@@ -53,6 +53,34 @@ module.exports = function(grunt) {
 			}
 		},
 
+
+		jekyll: {
+			options: {
+				src: '../',
+				config: '../_config.yml',
+				serve: true,
+				// watch: true
+			},
+			dist: {
+				options: {
+				  dest: '../_site',
+				}
+			},
+			server: {
+				options: {
+				  config: '../_config.yml',
+				  dest: '.jekyll'
+				}
+			},
+			check: {
+				options: {
+				  doctor: true
+				}
+			}
+
+		},
+
+
 		watch: {
 			scripts: {
 				files: ['../assets/js/*.js'],
@@ -73,9 +101,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-imageoptim');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-jekyll');
 
 	// Default task(s).
-	grunt.registerTask('default', ['sass', 'cssmin']);
+	grunt.registerTask('default', ['sass', 'cssmin', 'uglify']);
 
 	grunt.registerTask('images', ['imageoptim']);
 

@@ -3,10 +3,11 @@
 
 module.exports = function(grunt) {
 
-	require('load-grunt-tasks')(grunt);
-
 	// Project configuration.
 	grunt.initConfig({
+
+		pkg: grunt.file.readJSON('package.json'),
+
 
 		sass: {
 			options: {
@@ -43,21 +44,42 @@ module.exports = function(grunt) {
 
 		imageoptim: {
 			myTask: {
-				options: {
+			    options: {
 					jpegMini: false,
 					imageAlpha: true,
 					quitAfter: true
 				},
-				src: ['../assets/img/ludiwg']
+			    src: ['../assets/img/ludiwg']
 			}
 		},
 
 
-		shell: {
-			jekyllServe: {
-				command: 'jekyll serve --source ../',
+		jekyll: {
+			options: {
+				src: '../',
+				config: '../_config.yml',
+				serve: true,
+				// watch: true
+			},
+			// dist: {
+			// 	options: {
+			// 	  dest: '../_site',
+			// 	}
+			// },
+			server: {
+				options: {
+				  config: '../_config.yml',
+				  dest: '.jekyll'
+				}
+			},
+			check: {
+				options: {
+				  doctor: true
+				}
 			}
+
 		},
+
 
 		watch: {
 			scripts: {
@@ -66,12 +88,7 @@ module.exports = function(grunt) {
 			},
 			styles: {
 				files: ['../_src/css/*.scss','../_src/css/patterns/*.scss' ],
-				tasks: [ 'sass', 'cssmin', 'shell:jekyllServe'],
-				options: {
-					interrupt: true,
-					atBegin: true,
-					livereload: true
-				}
+				tasks: ['sass'],
 			},
 		}
 
@@ -79,9 +96,15 @@ module.exports = function(grunt) {
 	});
 
 
+	require('load-grunt-tasks')(grunt);
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-imageoptim');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-jekyll');
 
 	// Default task(s).
-	grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'shell:jekyllServe']);
+	grunt.registerTask('default', ['sass', 'cssmin', 'uglify']);
 
 	grunt.registerTask('images', ['imageoptim']);
 

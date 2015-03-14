@@ -2,9 +2,10 @@ img {
   max-width: 100%; }
 
 .nav, .timeline {
-  list-style-type: none;
   margin: 0;
   padding: 0; }
+  .nav li, .timeline li {
+    list-style-type: none; }
 
 body {
   font-size: 1.3em;
@@ -52,6 +53,9 @@ article {
       height: 600px; } }
 
 .timeline {
-  position: fixed; }
+  position: fixed;
+  background: lightgrey;
+  right: 10px;
+  width: 20px; }
 
 /*# sourceMappingURL=styles.css.map */
