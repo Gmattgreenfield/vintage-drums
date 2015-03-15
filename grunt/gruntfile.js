@@ -74,11 +74,11 @@ module.exports = function(grunt) {
 		watch: {
 			scripts: {
 				files: ['../assets/js/*.js'],
-				tasks: ['uglify'],
+				tasks: ['uglify', 'shell:jekyllServe'],
 			},
 			styles: {
 				files: ['../_src/css/*.scss','../_src/css/patterns/*.scss' ],
-				tasks: [ 'default'],
+				tasks: [ 'sass', 'cssmin', 'autoprefixer', 'shell:jekyllServe'],
 				options: {
 					interrupt: true,
 					atBegin: true,
@@ -93,7 +93,7 @@ module.exports = function(grunt) {
 
 
 	// Default task(s).
-	grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'autoprefixer', 'shell:jekyllServe']);
+	grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'autoprefixer']);
 
 	grunt.registerTask('images', ['imageoptim']);
 
