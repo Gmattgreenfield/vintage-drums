@@ -88,7 +88,6 @@ article {
   top: 8%;
   right: 10px;
   background: lightgrey;
-  border-radius: 10px;
   width: 20px; }
   .timeline a {
     text-decoration: none; }

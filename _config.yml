@@ -1,6 +1,8 @@
 
 baseurl: "/vintage-drums"
 
+exclude: ['grunt/']
+
 collections:
   ludwig:
     output: true

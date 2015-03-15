@@ -37,6 +37,8 @@ body {
 	font-size: 1.3em;
 	line-height: 1.5em;
 	font-family: 'Monda', sans-serif;
+	margin: 0;
+	word-wrap: break-word;
 
 }
 
@@ -128,12 +130,39 @@ article {
 // Time line nav
 
 .timeline {
+	position: fixed;
+	height: 84%;
+	top: 8%;
+	right: 10px;
+	background: lightgrey;
+	border-radius: 10px;
+	width: 20px;
+
 	ul {
 		@extend %reset-list;
 	}
 
-	position: fixed;
-	background: lightgrey;
-	right: 10px;
-	width: 20px;
+	a {
+		text-decoration: none;
+		&.current {
+			font-size: 2rem;
+		}
+	}
+
+	li {
+		position: absolute;
+		right: 0;
+	}
+
+
+	[class*='1962'] {
+		top: 62%;
+	}
+	[class*='1972'] {
+		top: 72%;
+	}
+	[class*='1979'] {
+		top: 79%;
+	}
+
 }

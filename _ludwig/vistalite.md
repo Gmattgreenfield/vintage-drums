@@ -2,6 +2,7 @@
 title: Vistalite
 year: 1972
 type: kit
+background-pattern: url(http://subtlepatterns.com/patterns/perforated_white_leather.png)
 ---
 
 Vistalite drums were a line of acrylic PET (Polyethylene terephthalate) drums produced by the Ludwig Drum company,[1] introduced in 1972. The name Vistalite refers to the translucent plastic that the shells were made out of. Vistalite and acrylic offered a synthetic alternative to wood shells and were popularized by rock drummer John Bonham of Led Zeppelin.

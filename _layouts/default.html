@@ -39,7 +39,7 @@
 			<nav class="timeline" id="timeline">
 				<ul>
 					{% for article in items %}
-						<li>
+						<li class="{{ article.year }}">
 							<a href="#{{ article.year }}">{{ article.year }}</a>
 						</li>
 					{% endfor %}
@@ -48,7 +48,7 @@
 
 
 			{% for article in items %}
-				<article id="{{ article.year }}">
+				<article id="{{ article.year }}" style="background: {{ article.background-pattern }};">
 
 					<div class="article__content {% cycle '', 'article__content--reversed' %}">
 
@@ -59,7 +59,9 @@
 						<div class="content content--text">
 							<h2>{{ article.title }}</h2>
 							<h3>{{ article.year }}</h3>
-							<div>{{ article.content }}</div>
+							<div>
+								<p>{{ article.content }}</p>
+							</div>
 						</div>
 
 					</div>

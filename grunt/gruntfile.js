@@ -19,6 +19,18 @@ module.exports = function(grunt) {
 			}
 		},
 
+		autoprefixer: {
+			prefix: {
+
+				options: {
+					browsers: ['last 2 versions']
+				},
+				src: '../assets/css/styles.css',
+				dest: '../assets/css/styles.css'
+			},
+		},
+
+
 		cssmin: {
 			target: {
 				files: [{
@@ -66,7 +78,7 @@ module.exports = function(grunt) {
 			},
 			styles: {
 				files: ['../_src/css/*.scss','../_src/css/patterns/*.scss' ],
-				tasks: [ 'sass', 'cssmin', 'shell:jekyllServe'],
+				tasks: [ 'default'],
 				options: {
 					interrupt: true,
 					atBegin: true,
@@ -81,7 +93,7 @@ module.exports = function(grunt) {
 
 
 	// Default task(s).
-	grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'shell:jekyllServe']);
+	grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'autoprefixer', 'shell:jekyllServe']);
 
 	grunt.registerTask('images', ['imageoptim']);
 
