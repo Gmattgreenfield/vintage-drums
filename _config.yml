@@ -5,7 +5,7 @@ exclude: ['grunt/']
 
 collections:
   ludwig:
-    output: true
+    output: false
   yamaha:
   gretsch:
   premier:
