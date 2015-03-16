@@ -4,11 +4,9 @@ baseurl: "/vintage-drums"
 exclude: ['grunt/']
 
 collections:
-  ludwig:
+  articles:
     output: false
-  yamaha:
-  gretsch:
-  premier:
+
 
 
 # Serving

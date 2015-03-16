@@ -19,54 +19,50 @@
 
 	<header>
 
-		<nav>
-			<ul class="nav nav--inline">
-				<li><a href="/">Home</a></li>
-				{% for collection in site.collections %}
-					<li><a href="{{ site.baseurl }}/{{ collection[0] }}.html">{{ collection[0] | capitalize }}</a></li>
-				{% endfor %}
-			</ul>
-		</nav>
-
 	</header>
 
 	<main>
 
 		<section>
 
-			{% assign items = site.ludwig | sort: 'year' %}
+			{% assign articles = site.articles | sort: 'year' %}
 
-			<nav class="timeline" id="timeline">
-				<ul>
-					{% for article in items %}
-						<li class="{{ article.year }}">
-							<a href="#{{ article.year }}">{{ article.year }}</a>
-						</li>
-					{% endfor %}
-				</ul>
-			</nav>
+			{% for article in articles %}
+				{% if article.layout != "single" %}
 
+					{% if article.layout == "side-by-side" %}
+						<article id="{{ article.year }}" class="side-by-side" data-year="{{ article.year }}">
+					{% elsif article.layout == "image-above" %}
+						<article id="{{ article.year }}" class="image-above" data-year="{{ article.year }}">
+					{% endif%}
 
-			{% for article in items %}
-				<article id="{{ article.year }}" style="background: {{ article.background-pattern }};">
+							<div class="constraint">
 
-					<div class="article__content {% cycle '', 'article__content--reversed' %}">
+								<div class="content content--image">
+									<img src="{{ site.baseurl }}/assets/img/{{ article.title | downcase | replace: ' ', '-' }}.png" alt="">
+								</div>
 
-						<div class="content content--image">
-							<img src="{{ site.baseurl }}/assets/img/{{ article.collection }}/{{ article.title | downcase | replace: ' ', '-' }}.png" alt="">
-						</div>
+								<div class="content content--text">
+									<p>{{ article.content }}</p>
+								</div>
 
-						<div class="content content--text">
-							<h2>{{ article.title }}</h2>
-							<h3>{{ article.year }}</h3>
-							<div>
-								<p>{{ article.content }}</p>
 							</div>
+
+						</article>
+
+				{% else %}
+
+					<article id="{{ article.year }}" class="single" data-year="{{ article.year }}">
+						<h2>{{ article.title }}</h2>
+						<p>{{ article.content }}</p>
+						<div class="content content--image">
+							<img src="{{ site.baseurl }}/assets/img/{{ article.title | downcase | replace: ' ', '-' }}.png" alt="">
 						</div>
+						<span class="year">est. {{ article.year }}</span>
+					</article>
 
-					</div>
+				{% endif%}
 
-				</article>
 			{% endfor %}
 
 		</section>

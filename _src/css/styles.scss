@@ -60,109 +60,85 @@ body {
 
 // Articles
 
-article {
+%border-top {
 	border-top: 1px solid black;
 	padding: 60px 0;
 }
 
-.article__content--reversed {
-	flex-direction: row-reverse;
-	img {
-		float: right;
-	}
-}
-
-.article__content {
+.constraint {
 	max-width: 1000px;
 	margin: auto;
 
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	@media (max-width: $lap-and-up) {
-		flex-direction: column;
-	}
-
-
 }
-
-
 
 .content {
-
 	padding: 0 24px;
-
-	@media (min-width: $desk-and-up) {
-	// 50% at desk
-		&--image,
-		&--text {
-			flex-grow: 1;
-			flex-shrink: 0;
-			flex-basis: 0px;
-
-		}
-
-	}
-
-	@media (min-width: $lap-and-up) and (max-width: $desk-and-up) {
-	// 75% at tablet
-		&--text {
-			flex-grow: 2;
-			flex-shrink: 0;
-			flex-basis: 0px;
-
-		}
-		&--image {
-			flex-grow: 1;
-			flex-shrink: 0;
-			flex-basis: 0px;
-
-			height: 600px;
-		}
-	}
-
-
 }
 
 
 
-// Time line nav
 
-.timeline {
-	position: fixed;
-	height: 84%;
-	top: 8%;
-	right: 10px;
-	background: lightgrey;
-	border-radius: 10px;
-	width: 20px;
+article.side-by-side {
 
-	ul {
-		@extend %reset-list;
-	}
+	@extend %border-top;
 
-	a {
-		text-decoration: none;
-		&.current {
-			font-size: 2rem;
+	.constraint {
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@media (max-width: $lap-and-up) {
+			flex-direction: column;
 		}
+
 	}
 
-	li {
-		position: absolute;
-		right: 0;
+	.content {
+
+		padding: 0 24px;
+
+		@media (min-width: $lap-and-up) {
+		// 50% at desk
+			&--image,
+			&--text {
+				flex-grow: 1;
+				flex-shrink: 0;
+				flex-basis: 0px;
+
+			}
+
+		}
+
 	}
 
+}
 
-	[class*='1962'] {
-		top: 62%;
-	}
-	[class*='1972'] {
-		top: 72%;
-	}
-	[class*='1979'] {
-		top: 79%;
+
+article.image-above {
+
+	@extend %border-top;
+
+	.content {
+
+		padding: 0 24px;
+
+		@media (min-width: $lap-and-up) {
+			// Paragraphs in to columns
+			&--text {
+				column-count: 2;
+				column-gap: 40px;
+			}
+
+		}
+
 	}
 
+}
+
+
+article.single {
+	width: 50%;
+	float: left;
+	display: inline-block;
 }
