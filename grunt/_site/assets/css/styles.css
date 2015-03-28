@@ -12,23 +12,24 @@ body {
   line-height: 1.5em;
   font-family: 'Monda', sans-serif;
   margin: 0;
+  padding: 0 20px;
   word-wrap: break-word; }
 
 .nav--inline li {
   display: inline-block; }
 
-article.side-by-side, article.image-above {
-  border-top: 1px solid black;
-  padding: 60px 0; }
+hr {
+  border-top: 5px solid black; }
 
-.constraint {
+article {
+  padding: 60px 0;
   max-width: 1000px;
   margin: auto; }
 
 .content {
   padding: 0 24px; }
 
-article.side-by-side .constraint {
+article.side-by-side .flex {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -39,14 +40,14 @@ article.side-by-side .constraint {
       -ms-flex-pack: center;
           justify-content: center; }
   @media (max-width: 720px) {
-    article.side-by-side .constraint {
+    article.side-by-side .flex {
       -webkit-flex-direction: column;
           -ms-flex-direction: column;
               flex-direction: column; } }
 article.side-by-side .content {
   padding: 0 24px; }
   @media (min-width: 720px) {
-    article.side-by-side .content--image, article.side-by-side .content--text {
+    article.side-by-side .content {
       -webkit-flex-grow: 1;
           -ms-flex-positive: 1;
               flex-grow: 1;
@@ -68,7 +69,35 @@ article.image-above .content {
          -moz-column-gap: 40px;
               column-gap: 40px; } }
 
-article.single {
-  width: 50%;
-  float: left;
-  display: inline-block; }
+article.single img {
+  display: block;
+  margin: auto; }
+article.single .flex {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  @media (max-width: 720px) {
+    article.single .flex {
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column; } }
+article.single .content {
+  text-align: center;
+  padding: 0 24px; }
+  @media (min-width: 720px) {
+    article.single .content {
+      -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      -webkit-flex-shrink: 0;
+          -ms-flex-negative: 0;
+              flex-shrink: 0;
+      -webkit-flex-basis: 0px;
+          -ms-flex-preferred-size: 0px;
+              flex-basis: 0px; } }

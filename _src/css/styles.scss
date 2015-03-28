@@ -38,6 +38,7 @@ body {
 	line-height: 1.5em;
 	font-family: 'Monda', sans-serif;
 	margin: 0;
+	padding: 0 $base-spacing-unit;
 	word-wrap: break-word;
 
 }
@@ -57,15 +58,17 @@ body {
 
 }
 
-
-// Articles
-
-%border-top {
-	border-top: 1px solid black;
-	padding: 60px 0;
+hr {
+	border-top: 5px solid black;
 }
 
-.constraint {
+
+
+// Base Articles
+
+article {
+	padding: 60px 0;
+
 	max-width: 1000px;
 	margin: auto;
 
@@ -78,11 +81,12 @@ body {
 
 
 
+
+// Article Display Types
+
 article.side-by-side {
 
-	@extend %border-top;
-
-	.constraint {
+	.flex {
 
 		display: flex;
 		align-items: center;
@@ -100,14 +104,9 @@ article.side-by-side {
 
 		@media (min-width: $lap-and-up) {
 		// 50% at desk
-			&--image,
-			&--text {
-				flex-grow: 1;
-				flex-shrink: 0;
-				flex-basis: 0px;
-
-			}
-
+			flex-grow: 1;
+			flex-shrink: 0;
+			flex-basis: 0px;
 		}
 
 	}
@@ -117,8 +116,6 @@ article.side-by-side {
 
 article.image-above {
 
-	@extend %border-top;
-
 	.content {
 
 		padding: 0 24px;
@@ -127,7 +124,7 @@ article.image-above {
 			// Paragraphs in to columns
 			&--text {
 				column-count: 2;
-				column-gap: 40px;
+				column-gap: $base-spacing-unit * 2;
 			}
 
 		}
@@ -138,7 +135,37 @@ article.image-above {
 
 
 article.single {
-	width: 50%;
-	float: left;
-	display: inline-block;
+
+
+	img {
+		display: block;
+		margin: auto;
+	}
+
+	.flex {
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@media (max-width: $lap-and-up) {
+			flex-direction: column;
+		}
+
+	}
+
+	.content {
+
+		text-align: center;
+		padding: 0 24px;
+
+		@media (min-width: $lap-and-up) {
+		// 50% at desk
+			flex-grow: 1;
+			flex-shrink: 0;
+			flex-basis: 0px;
+		}
+
+	}
+
 }

@@ -28,40 +28,40 @@
 			{% assign articles = site.articles | sort: 'year' %}
 
 			{% for article in articles %}
-				{% if article.layout != "single" %}
 
-					{% if article.layout == "side-by-side" %}
-						<article id="{{ article.year }}" class="side-by-side" data-year="{{ article.year }}">
-					{% elsif article.layout == "image-above" %}
-						<article id="{{ article.year }}" class="image-above" data-year="{{ article.year }}">
-					{% endif%}
+				<article class="{{ article.display }}" data-year="{{ article.year }}">
 
-							<div class="constraint">
+					<h2>{{ article.title }}</h2>
+					<span class="year">{{ article.year }}</span>
 
-								<div class="content content--image">
-									<img src="{{ site.baseurl }}/assets/img/{{ article.title | downcase | replace: ' ', '-' }}.png" alt="">
-								</div>
+					<div class="flex">
 
-								<div class="content content--text">
-									<p>{{ article.content }}</p>
-								</div>
-
-							</div>
-
-						</article>
-
-				{% else %}
-
-					<article id="{{ article.year }}" class="single" data-year="{{ article.year }}">
-						<h2>{{ article.title }}</h2>
-						<p>{{ article.content }}</p>
 						<div class="content content--image">
-							<img src="{{ site.baseurl }}/assets/img/{{ article.title | downcase | replace: ' ', '-' }}.png" alt="">
-						</div>
-						<span class="year">est. {{ article.year }}</span>
-					</article>
 
-				{% endif%}
+							{% if article.display == "single" %}
+								<ul>
+									<li>yerppg jksndgs I kkaa</li>
+									<li>laboris quis nostrud exercitation ullamco laboris nisi ut aliquip ex </li>
+									<li>nostrud nisi ut aliquip ex </li>
+									<li>exercitation ullamco laboris</li>
+								</ul>
+							{% endif %}
+
+							<img src="{{ site.baseurl }}/assets/img/{{ article.title | downcase | replace: ' ', '-' }}.png" alt="">
+							<span class="year">{{ article.year }}</span>
+
+						</div>
+
+						<div class="content content--text">
+							<p>{{ article.content }}</p>
+						</div>
+
+					</div>
+
+
+				</article>
+
+				<hr>
 
 			{% endfor %}
 
