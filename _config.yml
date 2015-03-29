@@ -4,7 +4,13 @@ baseurl: "/vintage-drums"
 exclude: ['grunt/']
 
 collections:
-  articles:
+  sixties:
+    output: false
+  seventies:
+    output: false
+  eighties:
+    output: false
+  nineties:
     output: false
 
 

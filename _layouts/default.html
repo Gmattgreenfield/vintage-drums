@@ -25,44 +25,30 @@
 
 		<section>
 
-			{% assign articles = site.articles | sort: 'year' %}
+			<h1 class="section-title">60's</h1>
+			{% assign sixties = site.sixties | sort: 'year' %}
+			{% for article in sixties %}
+				{% include article.html %}
+			{% endfor %}
 
-			{% for article in articles %}
+		</section>
 
-				<article class="{{ article.display }}" data-year="{{ article.year }}">
+		<section>
 
-					<h2>{{ article.title }}</h2>
-					<span class="year">{{ article.year }}</span>
+			<h1 class="section-title">70's</h1>
+			{% assign seventies = site.seventies | sort: 'year' %}
+			{% for article in seventies %}
+				{% include article.html %}
+			{% endfor %}
 
-					<div class="flex">
+		</section>
 
-						<div class="content content--image">
+		<section>
 
-							{% if article.display == "single" %}
-								<ul>
-									<li>yerppg jksndgs I kkaa</li>
-									<li>laboris quis nostrud exercitation ullamco laboris nisi ut aliquip ex </li>
-									<li>nostrud nisi ut aliquip ex </li>
-									<li>exercitation ullamco laboris</li>
-								</ul>
-							{% endif %}
-
-							<img src="{{ site.baseurl }}/assets/img/{{ article.title | downcase | replace: ' ', '-' }}.png" alt="">
-							<span class="year">{{ article.year }}</span>
-
-						</div>
-
-						<div class="content content--text">
-							<p>{{ article.content }}</p>
-						</div>
-
-					</div>
-
-
-				</article>
-
-				<hr>
-
+			<h1 class="section-title">80's</h1>
+			{% assign eighties = site.eighties | sort: 'year' %}
+			{% for article in eighties %}
+				{% include article.html %}
 			{% endfor %}
 
 		</section>

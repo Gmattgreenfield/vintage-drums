@@ -1,0 +1,33 @@
+<article class="{{ article.display }}" data-year="{{ article.year }}">
+
+	<h1>{{ article.title }}</h1>
+	<h2 class="year">{{ article.year }}</h2>
+
+	<div class="flex">
+
+		<div class="content content--image">
+
+			{% if article.display == "single" %}
+				<ul>
+					<li>yerppg jksndgs I kkaa</li>
+					<li>laboris quis nostrud exercitation ullamco laboris nisi ut aliquip ex </li>
+					<li>nostrud nisi ut aliquip ex </li>
+					<li>exercitation ullamco laboris</li>
+				</ul>
+			{% endif %}
+
+			<img src="{{ site.baseurl }}/assets/img/{{ article.title | downcase | replace: ' ', '-' }}.png" alt="">
+			<span class="year">{{ article.year }}</span>
+
+		</div>
+
+		<div class="content content--text">
+			<p>{{ article.content }}</p>
+		</div>
+
+	</div>
+
+
+</article>
+
+<hr>

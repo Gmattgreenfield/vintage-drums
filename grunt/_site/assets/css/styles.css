@@ -29,6 +29,9 @@ article {
 .content {
   padding: 0 24px; }
 
+.section-title {
+  font-size: 120px; }
+
 article.side-by-side .flex {
   display: -webkit-flex;
   display: -ms-flexbox;
